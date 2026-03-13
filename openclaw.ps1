@@ -74,7 +74,7 @@ function Show-Menu {
                 Write-Host ("  $Header".PadRight($w - 1)) -ForegroundColor DarkCyan
                 $row++
                 [Console]::SetCursorPosition(0, $row)
-                Write-Host ('  Up/Down move, Enter confirm, q quit'.PadRight($w - 1)) -ForegroundColor DarkGray
+                Write-Host ('  ↑↓ 移动 · Enter 确认 · q 退出'.PadRight($w - 1)) -ForegroundColor DarkGray
                 $row++
             }
 
@@ -1678,12 +1678,6 @@ function Main-Menu {
 
 
 function Install-Shortcut {
-    $scriptUrl = 'https://raw.githubusercontent.com/byJoey/openclawctl/main/openclaw.ps1'
-    $localDir = Join-Path $env:USERPROFILE '.openclawctl'
-    $localScript = Join-Path $localDir 'openclaw.ps1'
-
-    if (-not (Test-Path $localDir)) { New-Item -ItemType Directory -Path $localDir -Force | Out-Null }
-
     $profilePath = $PROFILE.CurrentUserAllHosts
     $profileDir = Split-Path $profilePath -Parent
     if (-not (Test-Path $profileDir)) { New-Item -ItemType Directory -Path $profileDir -Force | Out-Null }
@@ -1695,26 +1689,10 @@ function Install-Shortcut {
         $block = @"
 
 $marker
-function oc {
-    `$d = Join-Path `$env:USERPROFILE '.openclawctl'
-    `$s = Join-Path `$d 'openclaw.ps1'
-    try {
-        `$utf8 = [System.Text.UTF8Encoding]::new(`$true)
-        `$content = (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/byJoey/openclawctl/main/openclaw.ps1')
-        [System.IO.File]::WriteAllText(`$s, `$content, `$utf8)
-    } catch {}
-    if (Test-Path `$s) { & `$s } else { Write-Host 'oc: script download failed' -ForegroundColor Red }
-}
+function oc { irm https://raw.githubusercontent.com/byJoey/openclawctl/main/openclaw.ps1 | iex }
 "@
-        $utf8Bom = New-Object System.Text.UTF8Encoding $true
-        [System.IO.File]::AppendAllText($profilePath, $block, $utf8Bom)
+        Add-Content -Path $profilePath -Value $block -Encoding UTF8
     }
-
-    try {
-        $content = (New-Object Net.WebClient).DownloadString($scriptUrl)
-        $utf8Bom = New-Object System.Text.UTF8Encoding $true
-        [System.IO.File]::WriteAllText($localScript, $content, $utf8Bom)
-    } catch {}
 }
 
 Install-Shortcut
