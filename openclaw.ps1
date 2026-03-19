@@ -2,9 +2,7 @@
 # ╔══════════════════════════════════════════════════════════════════╗
 # ║           OpenClaw CTL / MoltBot Windows 管理脚本               ║
 # ╠══════════════════════════════════════════════════════════════════╣
-# ║  作者     GitHub  : byJoey                                      ║
-# ║           YouTube : @joeyblog                                   ║
-# ║           Telegram: https://t.me/+ft-zI76oovgwNmRh             ║
+#                    Alpha Fork Form Joey         
 # ╠══════════════════════════════════════════════════════════════════╣
 # ║  致谢 / 引用                                                    ║
 # ║  · 原始脚本基础来自 kejilion（@kejilion）                       ║
@@ -1634,10 +1632,8 @@ function Main-Menu {
         Write-Host "$running" -ForegroundColor $(if ($running -eq '运行中') { 'Green' } else { 'Red' })
         Write-Host ""
         Write-Colored "  ╔══════════════════════════════════════════╗" Magenta
-        Write-Colored "  ║  by Joey     GitHub: byJoey              ║" Magenta
-        Write-Colored "  ║  YouTube: @joeyblog                      ║" Magenta
-        Write-Colored "  ║  Telegram: t.me/+ft-zI76oovgwNmRh       ║" Magenta
-        Write-Colored "  ║  基于：kejilion · cliproxyapi-installer  ║" Magenta
+        Write-Colored "  ║           Alpha Fork Form Joey           ║" Magenta
+        Write-Colored "  ║  基于：kejilion · cliproxyapi-installer   ║" Magenta
         Write-Colored "  ╚══════════════════════════════════════════╝" Magenta
         Write-Host ""
 
