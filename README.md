@@ -1,17 +1,16 @@
 # OpenClaw CTL
 
-OpenClaw CTL / MoltBot 的管理脚本，把常用操作都包进了一个交互式菜单里，省得每次手打命令。
+OpenClaw CLI 的安装与管理脚本。
 
-支持 macOS（Intel / Apple Silicon）、主流 Linux 发行版和 Windows 11。
+支持 macOS（Intel / Apple Silicon）、主流 Linux 发行版和 Windows 10、11。
 
-作者：Joey  
-YouTube：[@joeyblog](https://youtube.com/@joeyblog)  
-Telegram 交流群：https://t.me/+ft-zI76oovgwNmRh  
+作者：Alpha  
+Fork from Joey
 基于：[kejilion](https://github.com/kejilion) 的原始脚本 + [cliproxyapi-installer](https://github.com/brokechubb/cliproxyapi-installer)
 
 ---
 
-## 能做什么
+## 功能
 
 - 一键安装全套（OpenClaw + CLIProxyAPI + OAuth + 自动配置）
 - OpenClaw 的启动、停止、更新、卸载
